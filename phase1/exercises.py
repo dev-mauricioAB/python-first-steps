@@ -68,3 +68,80 @@ print(f"USER > {user}")
 # 6. Multiple Exceptions
 # Write safe_divide(a: float, b: float) -> float that handles ZeroDivisionError ("Can't
 # divide by zero") and TypeError ("Inputs must be numbers").
+def safe_divide(a: float, b: float):
+  result = a / b
+
+  if(result is ZeroDivisionError):
+    raise ZeroDivisionError("Can't divide by zero")
+  
+  if(result is TypeError):
+    raise TypeError("Inputs must be numbers")
+  
+  print(f"Result: {result}")
+
+print("----- EXERCISE 6 -----")
+safe_divide(2,1)
+# safe_divide("2",1)
+# safe_divide(2,0)
+
+# 7. File Simulation
+# Simulate reading config: config_str = '{"host": "localhost", "port": 8080}'. Use
+# json.loads() to parse, print host/port or handle JSONDecodeError.
+import json
+
+def load_str_to_json(value: str):
+  loaded = json.loads(value)
+
+  if(loaded is json.JSONDecodeError):
+    raise json.JSONDecodeError(loaded)
+  
+  print(loaded)
+  
+print("----- EXERCISE 7 -----")
+config_str = '{"host": "localhost", "port": 8080}'
+load_str_to_json(config_str)
+
+# 8. Modules Pattern
+# Write stats.py with def count_active(users: list[dict]) -> int:. Test in test.py
+# importing it. Return count of "status": "active".
+...
+
+# 9. Mixed Collections
+# orders = [{"id": 1, "items": ["book", "pen"]}, {"id": 2, "items": ["laptop"]}].
+# Flatten to single list of all items using comprehension.
+print("----- EXERCISE 9 -----")
+orders = [{"id": 1, "items": ["book", "pen"]}, {"id": 2, "items": ["laptop"]}]
+all_items = []
+for order in orders:
+  for item in order["items"]:
+    all_items.append(item)
+    
+print(f"All items: {all_items}")
+
+# 10. Backend Data Processor
+# Complete function processing API response:
+def process_api_response(data: list[dict]) -> dict:
+    actives = []
+    avg_score = 0
+
+    for d in data:
+      if(d["active"] is True):
+        actives.append(d)
+        avg_score += d["score"]
+    
+    to_return = {
+      "active_count": actives.__len__(),
+      "avg_score": avg_score / actives.__len__()
+    }
+
+    print(to_return)
+      
+    # Filter active, calc avg score, return {"active_count": X, "avg_score": Y}
+    pass
+
+print("----- EXERCISE 10 -----")
+data = [
+  {'name': 'a', 'active': True, 'score': 85}, 
+  {'name': 'b', 'active': False, 'score': 90}
+]
+process_api_response(data)
