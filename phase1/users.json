@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "name": "User 1",
+      "active": true
+    },
+    {
+      "name": "User 2",
+      "active": false
+    },
+    {
+      "name": "User 3",
+      "active": true
+    }
+  ]
+}
