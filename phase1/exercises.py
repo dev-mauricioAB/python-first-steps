@@ -1,3 +1,5 @@
+import json
+
 # 1. Variables
 # Declare these with type hints: user_age (int=30), is_premium (bool=True), tags
 # (list[str]=["python","backend"]), profile (dict[str, any] with name/email/age).
@@ -87,7 +89,6 @@ safe_divide(2,1)
 # 7. File Simulation
 # Simulate reading config: config_str = '{"host": "localhost", "port": 8080}'. Use
 # json.loads() to parse, print host/port or handle JSONDecodeError.
-import json
 
 def load_str_to_json(value: str):
   loaded = json.loads(value)

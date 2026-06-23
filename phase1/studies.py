@@ -1,3 +1,5 @@
+import json
+
 # -------------------------------------------
 user_id: int = 123
 username: str = "mauricio"
@@ -36,7 +38,6 @@ print(high_scorers)
 
 
 # -------------------------------------------
-import json
 
 def load_users(filename: str) -> list[dict]:
     try:
